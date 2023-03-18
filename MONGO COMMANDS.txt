@@ -1,0 +1,89 @@
+
+
+> db
+
+> show dbs
+
+
+> use tycs
+
+> db.createCollection(tycs)
+	OR
+> db.tycs.insert({no:1, name:"tycs1", grade:"O", age:20})
+
+> show collections
+
+
+> db.tycs.insert({no:2, name:"tycs2", grade:"A", age:21})
+
+var students = 
+[
+{no:3, name:"tycs3", grade:"B", age:20},
+{no:4, name:"tycs4", grade:"O", age:19},
+{no:5, name:"tycs5", grade:"A", age:21},
+];
+
+
+> db.tycs.find()
+	OR
+
+db.tycs.find().pretty()
+
+> db.tycs.find({name:"tycs3"}).pretty()
+	OR
+db.tycs.find({grade:"A"}).pretty()
+
+> db.tycs.find({"age":{$gt:20}}).pretty()
+	OR
+db.tycs.find({"no":{$gt:3}}).pretty()
+
+
+> db.tycs.find({"age":{$lt:20}}).pretty()
+	OR
+db.tycs.find({"no":{$lt:3}}).pretty()
+
+
+> db.tycs.find({"age":{$ne:21}}).pretty()
+	OR
+db.tycs.find({"no":{$ne:4}}).pretty()
+
+
+db.tycs.update({"name":"tycs1"},{$set:{"name":"BNB"}})
+db.tycs.find().pretty()
+
+
+> db.tycs.find({},{"_id":0, "no":1})
+
+
+> db.tycs.find().limit(1).pretty()
+
+> db.tycs.find().limit(1).skip(1).pretty()
+
+
+db.tycs.find({}, {"age":1, "_id":0}).sort({"age":1})
+db.tycs.find({}, {"age":1, "_id":0}).sort({"age": -1})
+
+db.tycs.remove({"no":2})
+db.tycs.find().pretty()
+
+
+
+db.tycs.remove({})
+
+db.tycs.drop()
+show collecions
+
+
+
+db.dropDatabase()
+show dbs
+
+
+
+
+
+
+
+
+
+
