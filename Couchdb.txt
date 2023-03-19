@@ -50,8 +50,10 @@ fromJSON(res)$docs
 doc_delete(x,dbname = "ty",docid = "a_2")
 doc_get(x,dbname = "ty",docid = "a_2")
 
+#EXECUTE TILL HERE THEN CHECK SITE FOR rev="" OF EACH DOCS
+
 #UPDATE docs
 doc2<-'{"name":"Sdrink","beer":"TEST","note":"yummy","note2":"yay"}'
-doc_update(x,dbname = "ty",doc=doc2,docid="a_3",rev = "3-b1fb56db955b142c6efd3b3c52fe9e1b")
+doc_update(x,dbname = "ty",doc=doc2,docid="a_3",rev = "#copy from site")
 doc3<-'{"rollno":"01","name":"UZMA","GRADE":"A"}'
-doc_update(x,dbname = "ty",doc=doc3,docid = "a_1",rev = "1-be7c98bddf8ea7c46f4f401ff387593d")
+doc_update(x,dbname = "ty",doc=doc3,docid = "a_1",rev = "#copy from site")
