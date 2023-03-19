@@ -1,0 +1,36 @@
+db
+show dbs
+db.tycs.insert({no:1, name:"tycs1", grade:"O", age:20})
+db.tycs.insert({no:2, name:"tycs2", grade:"A", age:21})
+db.tycs.insert({no:3, name:"tycs3", grade:"D", age:29})
+
+db.tycs.find().pretty()	# to list all the documents
+
+db.tycs.find({name:"tycs3"}).pretty()	# name = tycs3
+db.tycs.find({grade:"A"}).pretty()	# grade = A
+
+
+db.tycs.find({"age":{$gt:20}}).pretty()	# age > 20
+db.tycs.find({"no":{$gt:3}}).pretty()	# roll no. > 3
+
+
+db.tycs.find({"age":{$lt:20}}).pretty()	# age < 20
+db.tycs.find({"no":{$lt:3}}).pretty()	# roll no. < 3
+
+
+db.tycs.find({"age":{$ne:21}}).pretty()	# age ≠ 21
+db.tycs.find({"no":{$ne:4}}).pretty()	# roll no. ≠ 4
+
+
+db.tycs.update({"name":"tycs1"},{$set:{"name":"BNB"}})	# updating name of an data entry
+db.tycs.find().pretty()
+
+
+
+
+db.tycs.remove({"no":2})
+db.tycs.find().pretty()
+
+
+
+db.tycs.remove({})
