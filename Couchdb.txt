@@ -1,8 +1,12 @@
 #install couchdb from web
+use bnb as username and pswd during installation 
+
+after installation complete, go to        http://127.0.0.1:5984/_utils/
 use bnb as username and pswd
-after installation complete, go to          http://127.0.0.1:5984/_utils/
-use bnb as username and pswd
-create new db (make sure its public by removing all members)
+verify installation by clicking on the TICK icon
+create new db called ty
+(make sure its public by removing all members and roles)
+
 exec code and check site  #
 
 
@@ -41,12 +45,13 @@ library("jsonlite")
 res<-db_query(x,dbname = "ty",selector = list('_id'=list('$gt'=NULL)),fields=c("name","rollno","GRADE","REMARK"),as="json")
 #display json doc
 fromJSON(res)$docs
-#doc_delete(cushion,dbname,docid)
+
+#DELETE Documents 
 doc_delete(x,dbname = "ty",docid = "a_2")
 doc_get(x,dbname = "ty",docid = "a_2")
+
+#UPDATE docs
 doc2<-'{"name":"Sdrink","beer":"TEST","note":"yummy","note2":"yay"}'
 doc_update(x,dbname = "ty",doc=doc2,docid="a_3",rev = "3-b1fb56db955b142c6efd3b3c52fe9e1b")
-doc3<-'{"rollno":"01",
-"name":"UZMA",
-"GRADE":"A"}'
+doc3<-'{"rollno":"01","name":"UZMA","GRADE":"A"}'
 doc_update(x,dbname = "ty",doc=doc3,docid = "a_1",rev = "1-be7c98bddf8ea7c46f4f401ff387593d")
